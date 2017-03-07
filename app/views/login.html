@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Login</h1>
+    <p ng-bind="loginError"></p><br>
+    <form ng-submit="login()">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input id="email" class="form-control" type="email" ng-model="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input id="password" class="form-control" type="password" ng-model="password"><br>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </form>
+</div>

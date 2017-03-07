@@ -1,0 +1,47 @@
+<div class="container" ng-init="disabled=true">
+    <form ng-submit="save()">
+        <div>
+            <h1>User Details</h1>
+        </div>
+        <div>
+            <button type="button" class="btn btn-default logout" ng-click="logout()">Logout</button>
+        </div>
+        <div class="form-group">
+            <label for="id">Id:</label>
+            <input type="number" id="id" class="form-control" ng-value="user_id" ng-disabled="disabled">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="form-control" ng-value="user_email" ng-model="edit_email"
+                   ng-disabled="disabled">
+        </div>
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" class="form-control" ng-model="edit_first_name"
+                   ng-value="user_first_name" ng-disabled="disabled">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" class="form-control" ng-model="edit_last_name" ng-value="user_last_name"
+                   ng-disabled="disabled">
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="text" id="age" class="form-control" ng-model="edit_age" ng-value="user_age"
+                   ng-disabled="disabled">
+        </div>
+        <div class="form-group" ng-hide="disabled">
+            <label for="password">Password:</label>
+            <input type="password" id="password" class="form-control" ng-model="edit_password">
+        </div>
+        <div class="form-group" ng-hide="!disabled">
+            <button type="button" class="btn btn-default" ng-click="edit()">Edit</button>
+        </div>
+        <div class="form-group" ng-hide="disabled">
+            <button type="submit" class="btn btn-default">Save</button>
+        </div>
+        <div class="form-group" ng-hide="disabled">
+            <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>
