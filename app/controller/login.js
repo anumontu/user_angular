@@ -1,14 +1,6 @@
 'use strict';
 
 angular.module('userApp.login', ['ngRoute'])
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/login', {
-            templateUrl: 'views/login.html',
-            controller: 'LoginCtrl'
-        });
-    }])
-
     .controller('LoginCtrl', function ($scope, $http, $location, localStorageService, check_login_service) {
         check_login_service.checkLogin($location, localStorageService);
         $scope.login = function () {

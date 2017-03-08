@@ -12,5 +12,22 @@ var userApp = angular.module('userApp', [
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
 
-    $routeProvider.otherwise({redirectTo: '/home'});
+    $routeProvider
+        .when('/home', {
+            templateUrl: 'views/home.html',
+            controller: 'HomeCtrl'
+        })
+        .when('/login', {
+            templateUrl: 'views/login.html',
+            controller: 'LoginCtrl'
+        })
+        .when('/register', {
+            templateUrl: 'views/register.html',
+            controller: 'RegisterCtrl'
+        })
+        .when('/userDetail', {
+            templateUrl: 'views/userDetail.html',
+            controller: 'userDetailCtrl'
+        })
+        .otherwise({redirectTo: '/home'});
 }]);

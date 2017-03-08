@@ -1,14 +1,6 @@
 'use strict';
 
 angular.module('userApp.register', ['ngRoute'])
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/register', {
-            templateUrl: 'views/register.html',
-            controller: 'RegisterCtrl'
-        });
-    }])
-
     .controller('RegisterCtrl', function ($scope, $http, $location) {
         $scope.register = function () {
             if ($scope.password != $scope.confirm_password) {

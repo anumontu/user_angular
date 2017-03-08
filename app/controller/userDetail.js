@@ -1,14 +1,6 @@
 'use strict';
 
 angular.module('userApp.userDetail', ['ngRoute'])
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/userDetail', {
-            templateUrl: 'views/userDetail.html',
-            controller: 'userDetailCtrl'
-        });
-    }])
-
     .controller('userDetailCtrl', function ($scope, $http, $location, localStorageService) {
         var token_key = localStorageService.get('token_key');
         var loggedin_user_id = localStorageService.get('user_id');

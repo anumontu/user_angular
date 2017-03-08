@@ -1,14 +1,6 @@
 'use strict';
 
 angular.module('userApp.home', ['ngRoute'])
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/home', {
-            templateUrl: 'views/home.html',
-            controller: 'HomeCtrl'
-        });
-    }])
-
     .controller('HomeCtrl', function ($scope, $location, localStorageService, check_login_service) {
         check_login_service.checkLogin($location, localStorageService);
         $scope.loginPage = function () {
