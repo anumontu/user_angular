@@ -62,6 +62,8 @@ angular.module('userApp.userDetail', ['ngRoute'])
                 'Authorization': 'Token ' + token_key
             }
         }).then(function success() {
+            localStorageService.remove('token_key');
+            localStorageService.remove('user_id');
             $location.url('/login');
         }, function error(response) {
             var error = angular.fromJson(response.data);

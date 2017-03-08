@@ -10,6 +10,11 @@ angular.module('userApp.login', ['ngRoute'])
 }])
 
 .controller('LoginCtrl', function($scope, $http, $location, localStorageService) {
+    var token_key = localStorageService.get('token_key');
+    var loggedin_user_id = localStorageService.get('user_id');
+    if (token_key != null && loggedin_user_id != null) {
+        $location.url("/userDetail");
+    }
     $scope.login = function () {
         $http.post('http://localhost:8000/api/login/', {
             email: $scope.email,

@@ -4,8 +4,6 @@
 var userApp = angular.module('userApp', [
   'LocalStorageModule',
   'ngRoute',
-  'userApp.view1',
-  'userApp.view2',
   'userApp.login',
   'userApp.home',
   'userApp.userDetail',

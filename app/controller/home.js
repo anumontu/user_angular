@@ -9,7 +9,12 @@ angular.module('userApp.home', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', function($scope, $location) {
+.controller('HomeCtrl', function($scope, $location, localStorageService) {
+    var token_key = localStorageService.get('token_key');
+    var loggedin_user_id = localStorageService.get('user_id');
+    if (token_key != null && loggedin_user_id != null) {
+        $location.url("/userDetail");
+    }
     $scope.loginPage = function () {
         $location.url('/login');
     };
