@@ -4,16 +4,18 @@
 var userApp = angular.module('userApp', [
     'LocalStorageModule',
     'ngRoute',
+    'ngResource',
     'userApp.login',
     'userApp.home',
     'userApp.userDetail',
     'userApp.register',
     'userApp.version'
-]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+]).config(['$locationProvider', '$routeProvider', '$resourceProvider', function ($locationProvider, $routeProvider, $resurceProvider) {
     $locationProvider.hashPrefix('!');
+    $resurceProvider.defaults.stripTrailingSlashes = false;
 
     $routeProvider
-        .when('/home', {
+        .when('/', {
             templateUrl: 'views/home.html',
             controller: 'HomeCtrl'
         })
@@ -29,5 +31,5 @@ var userApp = angular.module('userApp', [
             templateUrl: 'views/userDetail.html',
             controller: 'userDetailCtrl'
         })
-        .otherwise({redirectTo: '/home'});
+        .otherwise({redirectTo: '/'});
 }]);
