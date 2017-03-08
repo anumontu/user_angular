@@ -16,7 +16,8 @@ angular.module('userApp.register', ['ngRoute'])
                     alert("Registered Successfully, Please login to continue");
                     $location.url("/login");
                 }, function error(response) {
-                    alert(response.data);
+                    var data = angular.fromJson(response.data);
+                    alert(data.detail);
                 });
             }
         };

@@ -16,7 +16,8 @@ angular.module('userApp.userDetail', ['ngRoute'])
                 $scope.edit_age = $scope.user_age = response.age;
                 $scope.edit_password = '';
             }, function error(response) {
-                alert(response.detail);
+                var data = angular.fromJson(response.data);
+                alert(data.detail);
             });
         }
         $scope.edit = function () {
@@ -36,7 +37,8 @@ angular.module('userApp.userDetail', ['ngRoute'])
                 alert("Updated Successfully");
                 $scope.disabled = true;
             }, function error(response) {
-                alert(response.detail);
+                var data = angular.fromJson(response.data);
+                alert(data.detail);
             })
         };
         $scope.logout = function () {
@@ -45,7 +47,8 @@ angular.module('userApp.userDetail', ['ngRoute'])
                 localStorageService.remove('user_id');
                 $location.url('/login');
             }, function error(response) {
-                alert(response.detail);
+                var data = angular.fromJson(response.data);
+                alert(data.detail);
             })
         };
     });

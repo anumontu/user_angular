@@ -12,7 +12,8 @@ angular.module('userApp.login', ['ngRoute'])
                 localStorageService.set('user_id', response.user);
                 $location.url('/userDetail');
             }, function error(response) {
-                $scope.loginError = response.detail;
+                var data = angular.fromJson(response.data);
+                $scope.loginError = data.detail;
             });
         };
     });
