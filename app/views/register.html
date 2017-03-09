@@ -3,27 +3,27 @@
     <form ng-submit="register()">
         <div class="form-group">
             <label for="email">Email:</label>
-            <input id="email" class="form-control" type="email" ng-model="email">
+            <input id="email" class="form-control" type="email" ng-model="user.email" required>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input id="password" class="form-control" type="password" ng-model="password">
+            <input id="password" class="form-control" type="password" ng-model="user.password" required>
         </div>
         <div class="form-group">
             <label for="confirm_password">Confirm Password:</label>
-            <input id="confirm_password" class="form-control" type="password" ng-model="confirm_password">
+            <input id="confirm_password" class="form-control" type="password" ng-model="confirm_password" required>
         </div>
         <div class="form-group">
             <label for="first_name">First Name:</label>
-            <input id="first_name" class="form-control" type="text" ng-model="first_name">
+            <input id="first_name" class="form-control" type="text" ng-model="user.first_name" required>
         </div>
         <div class="form-group">
             <label for="last_name">Last Name:</label>
-            <input id="last_name" class="form-control" type="text" ng-model="last_name">
+            <input id="last_name" class="form-control" type="text" ng-model="user.last_name" required>
         </div>
         <div class="form-group">
             <label for="age">Age:</label>
-            <input id="age" class="form-control" type="number" ng-model="age">
+            <input id="age" class="form-control" type="number" ng-model="user.age" required>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

@@ -1,39 +1,28 @@
-userApp.factory('rest_login', function ($resource) {
-    return $resource(
-        'http://localhost:8000/api/login/',
-        {},
-        {
-            login: {method: 'POST'}
-        }
-    )
-});
-
-userApp.factory('rest_user', function ($resource) {
+userApp.factory('rest_angular', ['Restangular', function (Restangular) {
     return {
-        user: function (token) {
-            return $resource(
-                'http://localhost:8000/api/user/:user_id/',
-                {user_id: '@user_id'},
-                {
-                    add_user: {method: 'POST'},
-                    get_user: {method: 'GET', headers: {'Authorization': 'Token ' + token}},
-                    update_user: {method: 'PUT', headers: {'Authorization': 'Token ' + token}}
-                }
-            )
+        login: function (email, password) {
+            return Restangular.all('login').post({
+                email: email,
+                password: password
+            });
+        },
+        add_user: function (user) {
+            return Restangular.all('user').post(user);
+        },
+        get_user: function (token, user_id) {
+            return Restangular.one('user', user_id).get({}, {
+                'Authorization': 'Token ' + token
+            });
+        },
+        update_user: function (token, user_id, user) {
+            return Restangular.one('user', user_id).patch(user, {}, {
+                'Authorization': 'Token ' + token
+            });
+        },
+        logout: function (token) {
+            return Restangular.one('logout').get({}, {
+                'Authorization': 'Token ' + token
+            });
         }
     }
-});
-
-userApp.factory('rest_logout', function ($resource) {
-    return {
-        user: function (token) {
-            return $resource(
-                'http://localhost:8000/api/logout/',
-                {},
-                {
-                    logout: {method: 'GET', headers: {'Authorization': 'Token ' + token}}
-                }
-            )
-        }
-    }
-});
+}]);

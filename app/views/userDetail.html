@@ -8,31 +8,31 @@
         </div>
         <div class="form-group">
             <label for="id">Id:</label>
-            <input type="number" id="id" class="form-control" ng-value="user_id" ng-disabled="disabled">
+            <input type="number" id="id" class="form-control" ng-value="user.id" ng-disabled=true required>
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" class="form-control" ng-value="user_email" ng-model="edit_email"
-                   ng-disabled="disabled">
+            <input type="email" id="email" class="form-control" ng-value="user.email" ng-model="edit_user.email"
+                   ng-disabled="disabled" required>
         </div>
         <div class="form-group">
             <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" class="form-control" ng-model="edit_first_name"
-                   ng-value="user_first_name" ng-disabled="disabled">
+            <input type="text" id="first_name" class="form-control" ng-model="edit_user.first_name"
+                   ng-value="user.first_name" ng-disabled="disabled" required>
         </div>
         <div class="form-group">
             <label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" class="form-control" ng-model="edit_last_name" ng-value="user_last_name"
-                   ng-disabled="disabled">
+            <input type="text" id="last_name" class="form-control" ng-model="edit_user.last_name" ng-value="user.last_name"
+                   ng-disabled="disabled" required>
         </div>
         <div class="form-group">
             <label for="age">Age:</label>
-            <input type="text" id="age" class="form-control" ng-model="edit_age" ng-value="user_age"
-                   ng-disabled="disabled">
+            <input type="text" id="age" class="form-control" ng-model="edit_user.age" ng-value="user.age"
+                   ng-disabled="disabled" required>
         </div>
         <div class="form-group" ng-hide="disabled">
             <label for="password">Password:</label>
-            <input type="password" id="password" class="form-control" ng-model="edit_password">
+            <input type="password" id="password" class="form-control" ng-model="edit_user.password" required>
         </div>
         <div class="form-group" ng-hide="!disabled">
             <button type="button" class="btn btn-default" ng-click="edit()">Edit</button>

@@ -4,15 +4,14 @@
 var userApp = angular.module('userApp', [
     'LocalStorageModule',
     'ngRoute',
-    'ngResource',
+    'restangular',
     'userApp.login',
     'userApp.home',
     'userApp.userDetail',
     'userApp.register',
     'userApp.version'
-]).config(['$locationProvider', '$routeProvider', '$resourceProvider', function ($locationProvider, $routeProvider, $resurceProvider) {
+]).config( function ($locationProvider, $routeProvider, RestangularProvider) {
     $locationProvider.hashPrefix('!');
-    $resurceProvider.defaults.stripTrailingSlashes = false;
 
     $routeProvider
         .when('/', {
@@ -32,4 +31,6 @@ var userApp = angular.module('userApp', [
             controller: 'userDetailCtrl'
         })
         .otherwise({redirectTo: '/'});
-}]);
+
+    RestangularProvider.setBaseUrl('http://localhost:8000/api/').setRequestSuffix("/");
+});
